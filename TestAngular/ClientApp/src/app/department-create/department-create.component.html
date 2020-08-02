@@ -1,0 +1,24 @@
+<div class="mycard">
+  <h1>{{title}}</h1>
+  <div class="center-form">
+    <form (submit)="onSaveDepartment(departmentForm)" #departmentForm="ngForm">
+      <table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><input class="form-control" type="text" name="name" [ngModel]="department?.name" required #Name="ngModel" /></td>
+          </tr>
+          <tr>
+            <td>Leader</td>
+            <td><select class="form-control" name="leaderId" [ngModel]="department?.leaderID" required #LeaderID="ngModel">
+                <option *ngFor="let employee of employees" [value]="employee.id">{{employee.name}}</option>
+              </select></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" type="submit">Save</button>
+      <br />
+      <a class="btn btn-outline-secondary" routerLink="/department-data">Back to department list</a>
+    </form>
+  </div>
+ </div>

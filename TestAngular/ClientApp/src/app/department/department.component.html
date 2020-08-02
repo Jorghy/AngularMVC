@@ -1,0 +1,28 @@
+<h1>Department Management Page</h1>
+
+<div *ngIf="!departlist">
+  Loading...
+</div>
+
+<div *ngIf="departlist">
+  <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>Department ID</th>
+        <th>Name</th>
+        <th>Leader</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dep of departlist">
+        <td>{{dep.id}}</td>
+        <td>{{dep.name}}</td>
+        <td>{{dep.leaderID}}</td>
+        <td><button class="btn btn-outline-secondary" routerLink="create/{{dep.id}}">Edit</button></td>
+        <td><button class="btn btn-outline-danger" (click)="deleteDepartment(dep.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-success" routerLink="create" >Add Department</a>
+</div>

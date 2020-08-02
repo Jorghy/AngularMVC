@@ -1,0 +1,31 @@
+<h1>Employee Management Page</h1>
+
+<div *ngIf="!emplist">
+  Loading...
+</div>
+<div *ngIf="emplist">
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Salary</th>
+        <th>Created Date</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of emplist">
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.createDate | date:'yyyy.MM.dd'}}</td>
+        <td><a class="btn btn-outline-secondary" routerLink="create/{{emp.id}}">Edit</a></td>
+        <td><button class="btn btn-outline-danger" (click)="deleteEmployee(emp.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" routerLink="create">Add Employee</button>
+</div>

@@ -1,0 +1,31 @@
+<div class="mycard">
+  <h1>{{title}}</h1>
+  <div class="center-form">
+    <form (submit)="onSaveEmployee(employeeForm)" #employeeForm="ngForm">
+      <table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><input class="form-control" type="text" name="name" [ngModel]="employee?.name" required #Name="ngModel" /></td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td><input class="form-control" type="text" name="address" [ngModel]="employee?.address" required #Address="ngModel" /></td>
+          </tr>
+          <tr>
+            <td>Salary</td>
+            <td><input class="form-control" type="number" name="salary" [ngModel]="employee?.salary" required #Salary="ngModel" /></td>
+          </tr>
+          <tr>
+            <td>Created Date</td>
+            <td><input class="form-control" type="date" name="createdDate" [ngModel]="employee?.createDate | date: 'yyyy-MM-dd'" required #CreateDate="ngModel" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+      <button class="btn btn-success" type="submit" (click)="onSaveEmployee(employeeForm)">Save</button>
+      <br/>
+      <br />
+      <a class="btn btn-outline-secondary" routerLink="/employee-data">Back to employee list</a>
+</div>
